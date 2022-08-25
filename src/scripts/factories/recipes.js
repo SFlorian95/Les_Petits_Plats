@@ -1,6 +1,6 @@
 module.exports = {
   create (data) {
-    const { name } = data
+    const { name, ingredients } = data
 
     const getRecipeCardDom = () => {
       const col = document.createElement('div')
@@ -18,6 +18,7 @@ module.exports = {
 
       const cardText = document.createElement('p')
       cardText.classList.add('card-text')
+      cardText.textContent = ingredients.map(item => item.ingredient)
 
       col.appendChild(card)
       card.appendChild(bgGrey)

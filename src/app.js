@@ -21,8 +21,8 @@ const displayData = async recipes => {
 
 const init = async () => {
   const data = await api.getRecipes()
+  document.getElementById('search').addEventListener('keyup', api.searchRecipe)
   displayData(data)
-  console.log(data)
 }
 
 init()
