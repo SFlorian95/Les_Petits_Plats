@@ -86,11 +86,22 @@ const searchDropdown = async () => {
   displayData(result)
 }
 
+const createBadge = async () => {
+  const recipes = await api.getRecipes()
+
+  recipes.forEach((recipe) => {
+    const model = factoryRecipes.create(recipe)
+    const btn = model.createBadgeDom()
+    document.querySelector('.badges').appendChild(btn)
+  })
+}
+
 const init = async () => {
   const data = await api.getRecipes()
   document.getElementById('search').addEventListener('input', searchRecipe)
   document.querySelector('.dropdown-search').addEventListener('input', searchDropdown)
   // document.querySelectorAll('.dropdown-search').forEach((btn) => btn.addEventListener('input', searchDropdown))
+  document.querySelectorAll('li').addEventListener('click', createBadge)
   displayData(data)
 }
 

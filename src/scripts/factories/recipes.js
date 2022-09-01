@@ -75,6 +75,13 @@ module.exports = {
       return (ul)
     }
 
-    return { getRecipeCardDom, getDropdownIngredient, getDropdownAppliance, getDropdownUstensils }
+    const createBadgeDom = () => {
+      const btn = document.createElement('button')
+      btn.classList.add('btn btn-primary')
+
+      return (btn)
+    }
+
+    return { getRecipeCardDom, getDropdownIngredient, getDropdownAppliance, getDropdownUstensils, createBadgeDom }
   }
 }
