@@ -1,3 +1,18 @@
+@import './variables.scss';
+@import './filter.scss';
+@import './tags.scss';
+
+
+.ingredient, .ingredients {
+    background: $blue;
+}
+.appliance, .appliances {
+    background: $green;
+}
+.ustensil, .ustensils {
+    background: $orange;
+}
+
 header {
     margin-top: 50px;
     text-align: center;
@@ -8,7 +23,7 @@ header {
         font-weight: 700;
         font-size: 36px;
         line-height: 47px;
-        color: #D04F4F;
+        color: $orange;
     }
 }
 
@@ -19,7 +34,7 @@ header {
     margin-bottom: 20px;
 
     .input-search-bar {
-        background: #E7E7E7;
+        background: $lightGrey;
         border-radius: 5px;
         height: 69px;
 
@@ -28,8 +43,7 @@ header {
         font-weight: 400;
         font-size: 18px;
         line-height: 22px;
-        color: #000000;
-        // opacity: 0.25;   
+        color: $black;
     }
 
     button {
@@ -46,58 +60,81 @@ header {
 
 }
 
-#section-filtres {
-    margin-bottom: 20px;
+#section-recipes {
 
-    .badges {
-        margin-bottom: 20px;
-
-        button {
-            border-radius: 5px;
-            font-family: 'Lato';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 17px;
-            background: #3282F7;
-        }
-
-        i {
-            padding-left: 10px;
-            padding-right: 10px;
-            font-size: 16px;
-        }
+    .message-no-result {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
     }
 
-    .accordion {
-        max-width: 170px;
-
-        .accordion-button-ingredients {
-            color: white;
-            background: #3282F7;
-        }
-
-        .accordion-button-appareils {
-            color: white;
-            background: #68D9A4;
-        }
-
-        .accordion-button-ustensibles {
-            color: white;
-            background: #ED6454;
-        }
-        
+    article {
+        width: 432px;
     }
-
-}
-
-#section-recettes {
 
     .background-grey {
-        background: #C7BEBE;
+        background: $grey;
         height: 178px;
         width: 100%;
     }
+
+    .card-body {
+        height: 300px;
+        background-color: $lightGrey;
+
+        .card-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+    
+            .title {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 22px;
+            }
+        
+            .timer {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+                min-width: 100px;
+    
+                i {
+                    padding-right: 10px;
+                }
+            }
+        }
+    
+        .content {
+            display: flex;
+    
+            .ingredients {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 14px;
+                background: transparent;
+            }
+    
+            .description {
+                width: 50%;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 100%;
+            }
+        }
+    }
+
 }
 
 

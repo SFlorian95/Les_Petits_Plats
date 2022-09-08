@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Les petits plats</title>
   </head>
   <body>
@@ -13,103 +14,40 @@
     </header>
     <main class="container">
       <nav class="navbar container">
-        <form class="d-flex form-search-bar">
-          <input class="form-control input-search-bar" id="search" type="search" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
+        <form id="form-main-search-bar" class="d-flex form-search-bar">
+          <input id="input-search-bar" class="form-control input-search-bar" type="search" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
             <button type="submit"><i class="bi-search icon-search"></i></button>            
         </form>
       </nav>
-      <section class="container" id="section-filtres">
-        <div class="d-flex badges">
-          <button type="button" class="btn btn-primary">
-            Coco <i class="bi-x-circle"></i>
-          </button>
+      <section class="container" id="section-tags">
+      </section>
+      <section id="section-filter-advanced" class="container">
+        <div class="filter-container ingredients">
+          <div class="filter-header">
+            <input id="input-search-bar-ingredient" type="search" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient" default="Ingrédients">
+            <img id="dropdown-ingredient" src="src/assets/images/arrow_down.png">
+          </div>
+          <div id="search-result-ingredient" class="filter-search-result ingredients"></div>
         </div>
-        <div class="row align-items-start">
-          <div class="accordion col" id="ingredients">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading-ingredients">
-                <button class="accordion-button accordion-button-ingredients" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ingredients" aria-expanded="false" aria-controls="collapse-ingredients">
-                  Ingredients
-                </button>
-              </h2>
-              <div id="collapse-ingredients" class="accordion-collapse collapse" aria-labelledby="heading-ingredients" data-bs-parent="#ingredients">
-                <input class="form-control dropdown-search input-search-bar" type="search" placeholder="Ingredients..." aria-label="Rechercher une recette">
-                <div class="accordion-body" id="ingredients-accordion">
-                  
-                </div>
-              </div>
-            </div>
+        <div class="filter-container appliances">
+          <div class="filter-header">
+            <input id="input-search-bar-appliance" type="search" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil" default="Appareils">
+            <img id="dropdown-appliance" src="src/assets/images/arrow_down.png">
           </div>
-          <div class="accordion col" id="appareils">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button accordion-button-appareils" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                  Appareils
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#appareils">
-                <input class="form-control dropdown-search input-search-bar"  type="search" placeholder="Appareils..." aria-label="Rechercher une recette">
-                <div class="accordion-body" id="appliance-accordion">
-                  
-                </div>
-              </div>
-            </div>
+          <div id="search-result-appliance" class="filter-search-result appliances">
           </div>
-          <div class="accordion col" id="ustensibles">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="heading-ustensibles">
-                <button class="accordion-button accordion-button-ustensibles" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ustensibles" aria-expanded="false" aria-controls="collapseOne">
-                  Ustensibles
-                </button>
-              </h2>
-              <div id="collapse-ustensibles" class="accordion-collapse collapse" aria-labelledby="heading-ustensibles" data-bs-parent="#ustensibles">
-                <input class="form-control input-search-bar" type="search" placeholder="Ustensibles..." aria-label="Rechercher une recette">
-                <div class="accordion-body" id="ustensils-accordion">
-                  
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="filter-container ustensils">
+          <div class="filter-header">
+            <input id="input-search-bar-ustensil" type="search" placeholder="Rechercher un ustensile" aria-label="Rechercher un ustensile" default="Ustensiles">
+            <img id="dropdown-ustensil" src="src/assets/images/arrow_down.png">
+          </div>
+          <div id="search-result-ustensil" class="filter-search-result ustensils">
           </div>
         </div>
       </section>
-      <section class="container" id="section-recettes">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="recette">
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
+      <section class="container" id="section-recipes">
+        <div id="row-recipes-cards" class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-4">
         </div>
       </section>
 

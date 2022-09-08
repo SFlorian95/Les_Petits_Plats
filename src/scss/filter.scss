@@ -1,0 +1,125 @@
+#section-filter-advanced {
+    margin-bottom: 20px;
+    display: flex; 
+
+    .filter-container {
+        border-radius: 5px;
+        width: 200px;
+        height: 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 667px;
+        margin-right: 20px;
+        position: relative;
+
+        &.active {
+            width: 667px;
+            height: auto;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            input {
+                background: transparent;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+                border: none;
+                color: #FFFFFF;
+                padding-left: 20px;
+                flex: 1;
+                width: 144px;
+
+                &::placeholder {
+                    color: #FFFFFF;
+                    opacity: 0.5;
+                }
+
+                &.active {
+                    width: auto;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            img {
+                width: 16px;
+                height: 9.88px;
+                margin-left: 20px;
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .filter-search-result {
+            display: none;
+            flex-wrap: wrap;
+            position: absolute;
+            z-index: 5;
+            width: 667px;
+            margin-top: 55px;
+            border-radius: 5px;
+            padding-top: 10px;
+
+            &.active {
+                display: flex;
+            }
+    
+            span {
+                width: 221px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 22px;
+                color: white;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-bottom: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1400px) {
+    #section-filter-advanced {
+        flex-direction: column;
+
+        .filter-container {
+            margin-bottom: 20px;
+
+            &.active {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:748px) {
+    #section-filter-advanced {
+
+        .filter-container {
+
+            &.active {
+                width: 333px;
+            }
+
+            .filter-search-result {
+                width: 333px;
+            }
+        }
+    }
+}
