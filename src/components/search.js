@@ -5,31 +5,7 @@
  * @param {String} value2
  * @returns Boolean
  */
-const isLowerCaseIncluded = (value1, value2) => value1.toLowerCase().includes(value2.toLowerCase())
-
 const isLowerCaseIncludedBis = (value1, value2) => value1.toLowerCase().indexOf(value2.toLowerCase()) > -1
-
-/**
- * returns the first element in the provided array that satisfies the provided testing function (isIncluded function).
- * If no values satisfy the testing function, undefined is returned.
- * @param {Array} array - Array of object (recipes)
- * @param {String} property - Object property by example: 'description' or 'name'
- * @param {String} value - String to search
- * @returns Object || undefined
- */
-const isFound = (array, property, value) => array.find(item => isLowerCaseIncluded(item[property], value))
-
-/**
- * Get recipes in function of value includes in at least one of followings properties:
- * name or description or ingredients
- * @param {Array} recipes - recipes (array of object)
- * @param {String} value - String to search
- * @returns Array of object of recipes
- */
-const filterMainSearchBar = (recipes, value) => recipes.filter(item =>
-  isLowerCaseIncluded(item.description, value) ||
-  isLowerCaseIncluded(item.name, value) ||
-  isFound(item.ingredients, 'ingredient', value))
 
 const isRecipeIncludesEveryTagIngredient = (recipe, tags) => tags.ingredients.every(ingredient => recipe.ingredients.map(elem => elem.ingredient).includes(ingredient))
 const isRecipeIncludesEveryTagAppliance = (recipe, tags) => tags.appliances.every(appliance => recipe.appliance.includes(appliance))
@@ -46,6 +22,14 @@ const filterByTags = (recipes, tags) => recipes.filter(recipe =>
   isRecipeIncludesEveryTagAppliance(recipe, tags) &&
   isRecipeIncludesEveryTagUstensil(recipe, tags))
 
+/**
+ * returns the first element in the provided array that satisfies the provided testing function (isIncluded function).
+ * If no values satisfy the testing function, undefined is returned.
+ * @param {Array} array - Array of object (recipes)
+ * @param {String} property - Object property by example: 'description' or 'name'
+ * @param {String} value - String to search
+ * @returns Object || undefined
+ */
 const isFoundBis = (array, property, value) => {
   for (const item of array) {
     if (isLowerCaseIncludedBis(item[property], value)) {
@@ -78,8 +62,7 @@ const filterMainSearchBarBis = (recipes, value) => {
 }
 
 module.exports = {
-  isLowerCaseIncluded,
-  filterMainSearchBar,
+  isLowerCaseIncludedBis,
   filterByTags,
   filterMainSearchBarBis
 }

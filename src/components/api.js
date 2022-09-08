@@ -1,6 +1,6 @@
 const axios = require('axios')
 const url = 'src/data/recipes.json'
-const { isLowerCaseIncluded, filterMainSearchBar, filterByTags } = require('./search')
+const { isLowerCaseIncludedBis, filterMainSearchBarBis, filterByTags } = require('./search')
 const tagsDefault = {
   ingredients: [],
   appliances: [],
@@ -16,7 +16,7 @@ const tagsDefault = {
 const getRecipes = (value = '', tags = tagsDefault) => axios.get(url)
   .then(response => {
     console.log('tags:', tags)
-    const result = value.length >= 3 ? filterMainSearchBar(response.data, value) : response.data
+    const result = value.length >= 3 ? filterMainSearchBarBis(response.data, value) : response.data
     return filterByTags(result, tags)
   })
 
@@ -35,7 +35,7 @@ const getIngredients = (main = '', tags, value = '') => getRecipes(main, tags)
     recipes.forEach(recipe => {
       ingredients = [...new Set([...ingredients, ...recipe.ingredients.map(item => item.ingredient)])]
     })
-    return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncluded(item, filter)) : ingredients
+    return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncludedBis(item, filter)) : ingredients
   })
 
 /**
@@ -50,7 +50,7 @@ const getDevices = (main = '', tags, value = '') => getRecipes(main, tags)
     const filter = value === 'Appareils' ? '' : value
     // Get all unique appliances
     const appliances = [...new Set(recipes.map(item => item.appliance))]
-    return filter.length >= 3 ? appliances.filter(item => isLowerCaseIncluded(item, filter)) : appliances
+    return filter.length >= 3 ? appliances.filter(item => isLowerCaseIncludedBis(item, filter)) : appliances
   })
 
 /**
@@ -68,7 +68,7 @@ const getUstensils = (main = '', tags, value = '') => getRecipes(main, tags)
     recipes.forEach(recipe => {
       ustensils = [...new Set([...ustensils, ...recipe.ustensils])]
     })
-    return filter.length >= 3 ? ustensils.filter(item => isLowerCaseIncluded(item, filter)) : ustensils
+    return filter.length >= 3 ? ustensils.filter(item => isLowerCaseIncludedBis(item, filter)) : ustensils
   })
 
 module.exports = {
