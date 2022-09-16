@@ -46,7 +46,6 @@ const empty = el => {
    * @param {String} classToAdd
    */
 const toggleClass = (el, classToRemove, classToAdd) => {
-  console.log(el)
   if (el.classList.contains(classToRemove)) {
     el.classList.remove(classToRemove)
   }

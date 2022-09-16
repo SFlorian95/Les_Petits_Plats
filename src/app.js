@@ -13,8 +13,6 @@ const dom = require('./components/dom')
 
 const applyMainSearchBarFilter = async () => {
   const recipes = await api.getRecipes(domLinker.inputSearchBar.value, state.tags)
-  console.log(domLinker.inputSearchBar.value)
-  console.log('tags:', state.tags)
   displayRecipes(recipes)
   // hide all categories dropdown
   categories.forEach(category => displayDropdown(category, false))
@@ -45,12 +43,10 @@ const displayCategory = (category, data) => {
   dom.empty(domLinker[`searchResult${category}`])
   const categoryModel = factoryFilter.createFilter(data)
   categoryModel.getFilterDOM(domLinker[`searchResult${category}`], `${category}s`.toLowerCase())
-  console.log(data)
 }
 
 const init = async () => {
   const recipes = await api.getRecipes()
-  console.log(recipes)
 
   displayRecipes(recipes)
   // diplay each category
@@ -72,14 +68,11 @@ const applyCategorySearch = async category => {
     data = await api.getUstensils(domLinker.inputSearchBar.value, state.tags, domLinker.inputSearchBarUstensil.value)
   }
 
-  const { value } = domLinker[`inputSearchBar${category.name}`]
-  console.log('applyCategorySearch', value)
   displayCategory(category.name, data)
 }
 
 const displayDropdown = (category, bool = true) => {
   domLinker[`dropdown${category.name}`].setAttribute('src', `/src/assets/images/arrow_${bool ? 'up' : 'down'}.png`)
-  console.log(domLinker[`dropdown${category.name}`].getAttribute('src'), bool)
   domLinker[`inputSearchBar${category.name}`].value = bool ? '' : category.fr
   domLinker[`searchResult${category.name}`].classList[bool ? 'add' : 'remove']('active')
   domLinker[`dropdown${category.name}`].parentNode.parentNode.classList[bool ? 'add' : 'remove']('active')

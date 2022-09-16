@@ -15,7 +15,6 @@ const tagsDefault = {
  */
 const getRecipes = (value = '', tags = tagsDefault) => axios.get(url)
   .then(response => {
-    console.log('tags:', tags)
     const result = value.length >= 3 ? filterMainSearchBarBis(response.data, value) : response.data
     return filterByTags(result, tags)
   })
