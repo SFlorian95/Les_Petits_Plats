@@ -137,7 +137,21 @@ header {
 
 }
 
+@media screen and (min-width:1200px){
+    #section-recipes {
+        article {
+            width: 350px;
+        }
 
+        div.card-body {
+            overflow-y: auto;
+        }
+
+        div.ingredients {
+            padding-right: 2px;
+        }
+    }
+}
 
 
 

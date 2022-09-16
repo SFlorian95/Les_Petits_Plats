@@ -67,10 +67,11 @@
             flex-wrap: wrap;
             position: absolute;
             z-index: 5;
-            width: 667px;
             margin-top: 55px;
             border-radius: 5px;
             padding-top: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
 
             &.active {
                 display: flex;
@@ -95,7 +96,6 @@
 
 @media screen and (max-width:1400px) {
     #section-filter-advanced {
-        flex-direction: column;
 
         .filter-container {
             margin-bottom: 20px;
